@@ -1,0 +1,44 @@
+{
+
+    "jcr:primaryType": "sling:Folder",
+    "demo.com": {
+        "jcr:primaryType": "sling:Mapping",
+        ,
+        "weretail_com_content": {
+            "jcr:primaryType": "sling:Mapping",
+            "sling:match": "(.+)$",
+            "sling:internalRedirect": [
+                "/content/demo/us/en/$1",
+                "/$1"
+            ]
+        },
+        "reverse_mapping_content": {
+            "jcr:primaryType": "sling:Mapping",
+            "sling:match": "$1",
+            "sling:internalRedirect": [
+                "/content/demo/us/en/(.*).html"
+            ]
+        },
+        "reverse_mapping_content_nohtml": {
+            "jcr:primaryType": "sling:Mapping",
+            "sling:match": "$1",
+            "sling:internalRedirect": [
+                "/content/demo/us/en/(.*)"
+            ]
+        },
+        "reverse_mapping_root": {
+            "jcr:primaryType": "sling:Mapping",
+            "sling:match": "$",
+            "sling:internalRedirect": [
+                "/content/demo/us/en.html"
+            ]
+        }
+    },
+    "demo_com_root": {
+        "jcr:primaryType": "sling:Mapping",
+        "sling:match": "weretail.com$",
+        "sling:internalRedirect": [
+            "/content/demo/us/en.html"
+        ]
+    }
+}
